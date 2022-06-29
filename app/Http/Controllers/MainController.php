@@ -31,7 +31,7 @@ class MainController extends Controller
     //     return redirect('/');
     // }
     public function tx(Request $request){
-$curl = curl_init();
+        $curl = curl_init();
 
         curl_setopt_array($curl, array(
         CURLOPT_URL => 'https://api.serpul.co.id/prabayar/order',

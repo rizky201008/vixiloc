@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -20,5 +21,10 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [MainController::class, 'index']);
-Route::get('/{slug}', [MainController::class, 'category']);
-Route::post('/transaksi', [MainController::class, 'tx']);
+Route::get('/product/{slug}', [MainController::class, 'category'])->middleware('auth');
+Route::post('/product/{slug}', [MainController::class, 'tx']);
+Route::get('/auth/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/auth/login', [AuthController::class, 'auth']);
+Route::get('/auth/register', [AuthController::class, 'register'])->middleware('guest');
+Route::post('/auth/register', [AuthController::class, 'store']);
+Route::post('/auth/logout', [AuthController::class, 'logout']);

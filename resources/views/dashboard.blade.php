@@ -32,7 +32,7 @@
                 @foreach ($kategori as $category)
                 <div class="col-4">
                     <div class="container">
-                        <a href="/{{ $category->slug }}"><img class="category-img mb-2" src="{{ $category->img }}" alt="{{ $category->name }}"></a>
+                        <a href="/product/{{ $category->slug }}"><img class="category-img mb-2" src="{{ $category->img }}" alt="{{ $category->name }}"></a>
                         <p class="category-txt">{{ $category->name }}</p>
                     </div>
                 </div>
