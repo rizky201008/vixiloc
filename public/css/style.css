@@ -1,0 +1,45 @@
+nav{
+    /* background-color: #00ffb2; */
+    backdrop-filter: blur(5px);
+}
+.category-img{
+    width: 50px;
+    box-shadow: 0px 0px 20px #363636;
+    border-radius: 20px;
+}
+.category-txt{
+        max-width: 100%;
+        overflow:hidden; 
+        white-space:nowrap; 
+        text-overflow: ellipsis;
+        color: rgb(0, 0, 0);
+    }
+@media (min-width: 768px) { 
+    .category-img{
+        width: 200px;
+        box-shadow: 0px 0px 20px #363636;
+        border-radius: 20px;
+    }
+ }
+ .product-txt{
+        max-width: 100%;
+        overflow:hidden; 
+        white-space:nowrap; 
+        text-overflow: ellipsis;
+        color: rgb(0, 0, 0);
+ }
+#footer{
+    background-color: cadetblue;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+#head-content{
+    background-color: #0d6efd;
+    padding-top: 3rem;
+}
+.carousel-card{
+    background-color: #ffff;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 2rem;
+}
