@@ -1,8 +1,9 @@
 @extends('layouts.main')
-    <div class="container" style="padding-top: 5rem; min-height: 101%;">
+@section('content')
+    <div class="container" style="padding-top: 10rem; min-height: 700px;">
         <div class="row">
             @if ($category->product->count())
-                <form action="/transaksi" method="post">
+                <form action="" method="post">
                     @csrf
                     <label for="dest" class="form-label">Masukkan ID user</label>
                 <input type="text" id="dest" class="form-control mb-3" placeholder="Masukkan id user" name="destinasi">
@@ -23,3 +24,4 @@
             @endif
         </div>
     </div>
+@endsection

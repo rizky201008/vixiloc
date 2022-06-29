@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
@@ -31,35 +32,43 @@ class MainController extends Controller
     //     return redirect('/');
     // }
     public function tx(Request $request){
-        $curl = curl_init();
+        $produk= Product::where('sku','=',$request->sku)->first();
+        $harga=$produk['price'];
+        if (Auth::user()->saldo>$harga) {
+            $curl = curl_init();
 
-        curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api.serpul.co.id/prabayar/order',
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS => "destination=$request->destinasi&product_id=$request->sku&ref_id=$request->ref",
-        CURLOPT_HTTPHEADER => array(
-            'Accept: application/json',
-            'Authorization: a01d44c5b1b919ff410c580efca099ce'
-        ),
-        ));
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'https://api.serpul.co.id/prabayar/order',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS => "destination=$request->destinasi&product_id=$request->sku&ref_id=$request->ref",
+                CURLOPT_HTTPHEADER => array(
+                    'Accept: application/json',
+                    'Authorization: a01d44c5b1b919ff410c580efca099ce'
+                ),
+            ));
 
-        $response = curl_exec($curl);
+            $response = curl_exec($curl);
 
-        curl_close($curl);
-        
-        $json_result = json_decode($response, true);
+            curl_close($curl);
 
-        if ($json_result['responseCode']==200) {
-            echo $json_result['responseMessage'];
-            return redirect('/');
-        }elseif ($json_result['responseCode'] == 400) {
-            echo $json_result['responseMessage'];
+            $json_result = json_decode($response, true);
+
+            $response_message= $json_result['responseMessage'];
+
+            if ($json_result['responseCode'] == 200) {
+                // echo $json_result['responseMessage'];
+                return redirect("/dashboard");
+            } elseif ($json_result['responseCode'] == 400) {
+                echo $json_result['responseMessage'];
+            }
+        } else {
+            echo "<script>swal('Gagal', 'Transaksi gagal');</script>";
         }
     }
 }

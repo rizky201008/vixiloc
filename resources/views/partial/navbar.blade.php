@@ -12,17 +12,17 @@
       </ul>
       <ul class="navbar-nav ms-auto">
           @auth
-          <li class="nav-item m-1">
-            <a href="/akun/deposit"><button class="btn btn-warning">Saldo {{ auth()->user()->saldo }}</button></a>
+          <li class="nav-item">
+            <a href="/akun/deposit" class="nav-link">Saldo: Rp.{{ auth()->user()->saldo }}</a>
           </li>
-          <li class="nav-item m-1">
-            <a href="/akun"><button class="btn btn-info">{{ auth()->user()->name }}</button></a>
+          <li class="nav-item">
+            <a href="/akun" class="nav-link">{{ auth()->user()->name }}</a>
           </li>
-          <li class="nav-item m-1">
+          <li class="nav-item">
             
             <form action="/auth/logout" method="post">
               @csrf
-            <button type="submit" class="btn btn-dark">Logout</button>
+            <button type="submit" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Logout</button>
             </form>
           </li>
           @else
@@ -31,7 +31,6 @@
                   </li>
                   @endauth
                 </ul>
-      
     </div>
   </div>
 </nav>
