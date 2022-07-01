@@ -59,16 +59,16 @@ class MainController extends Controller
 
             $json_result = json_decode($response, true);
 
+            $response_code= $json_result['responseCode'];
             $response_message= $json_result['responseMessage'];
 
-            if ($json_result['responseCode'] == 200) {
-                // echo $json_result['responseMessage'];
-                return redirect("/dashboard");
-            } elseif ($json_result['responseCode'] == 400) {
-                echo $json_result['responseMessage'];
+            if ($response_code == 200) {
+                echo '<script>alert("'.$response_message.'");</script>';
+            } elseif ($response_code == 400) {
+                echo '<script>alert("'.$response_message.'");</script>';
             }
         } else {
-            echo "<script>swal('Gagal', 'Transaksi gagal');</script>";
+            echo '<script>alert("O Uh saldo anda kurang!!");</script>';
         }
     }
 }

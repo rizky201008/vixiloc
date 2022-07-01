@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +28,4 @@ Route::post('/auth/login', [AuthController::class, 'auth']);
 Route::get('/auth/register', [AuthController::class, 'register'])->middleware('guest');
 Route::post('/auth/register', [AuthController::class, 'store']);
 Route::post('/auth/logout', [AuthController::class, 'logout']);
+Route::get('/admin', [AdminController::class, 'index']);
