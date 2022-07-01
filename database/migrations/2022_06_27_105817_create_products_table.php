@@ -18,7 +18,6 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->integer('price');
             $table->string('sku');
-            $table->boolean('status')->default(0);
             $table->text('description')->nullable();
             $table->foreignId('category_id');
             $table->timestamps();

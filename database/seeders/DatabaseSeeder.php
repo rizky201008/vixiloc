@@ -20,77 +20,115 @@ class DatabaseSeeder extends Seeder
         Category::create([
             'name' => 'Free Fire',
             'img' => '/img/game/free_fire.png',
-            'slug' => 'free-fire'
+            'slug' => 'free-fire',
+            'tipe' => 'game'
         ]);
         Category::create([
             'name' => 'Mobile Legends',
             'img' => '/img/game/mlbb.jpg',
-            'slug' => 'mobile-legends'
+            'slug' => 'mobile-legends',
+            'tipe' => 'game'
         ]);
         Category::create([
             'name' => 'PUBG',
             'img' => '/img/game/pubgm.jpg',
-            'slug' => 'pubg-mobile'
+            'slug' => 'pubg-mobile',
+            'tipe' => 'game'
         ]);
         Category::create([
             'name' => 'Ragnarok M',
             'img' => '/img/game/ragnarok.jpg',
-            'slug' => 'ragnarok'
-        ]);
-        Category::create([
-            'name' => 'Google Play',
-            'img' => '/img/game/google_play.jpg',
-            'slug' => 'google-play'
+            'slug' => 'ragnarok',
+            'tipe' => 'game'
         ]);
         Category::create([
             'name' => 'Garena',
             'img' => '/img/game/garena.jpg',
-            'slug' => 'garena'
-        ]);
-        Category::create([
-            'name' => 'Megaxus',
-            'img' => '/img/game/megaxus.jpg',
-            'slug' => 'megaxus'
-        ]);
-        Category::create([
-            'name' => 'PlayStation Card',
-            'img' => '/img/game/ps.jpg',
-            'slug' => 'play-station'
-        ]);
-        Category::create([
-            'name' => 'Steam Wallet IDR',
-            'img' => '/img/game/steam.jpg',
-            'slug' => 'steam-wallet'
+            'slug' => 'garena',
+            'tipe' => 'game'
         ]);
         Category::create([
             'name' => 'Point Blank Zepetto',
             'img' => '/img/game/pb.jpg',
-            'slug' => 'point-blank'
+            'slug' => 'point-blank',
+            'tipe' => 'game'
         ]);
         Category::create([
             'name' => 'Arena Of Valor',
             'img' => '/img/game/aov.jpg',
-            'slug' => 'aov'
+            'slug' => 'aov',
+            'tipe' => 'game'
         ]);
         Category::create([
             'name' => 'Call Of Duty',
             'img' => '/img/game/codm.jpg',
-            'slug' => 'call-of-duty'
+            'slug' => 'call-of-duty',
+            'tipe' => 'game'
         ]);
         Category::create([
-            'name' => 'Hago',
-            'img' => '/img/game/hago.jpg',
-            'slug' => 'hago'
+            'name' => 'Speed Drifter',
+            'img' => '/img/game/speeddrft.webp',
+            'slug' => 'speed-drifter',
+            'tipe' => 'game'
         ]);
         Category::create([
-            'name' => 'Razer Gold',
-            'img' => '/img/game/razer_gold.jpg',
-            'slug' => 'razer-gold'
+            'name' => 'Saussage Man',
+            'img' => '/img/game/saussage.webp',
+            'slug' => 'saussage-man',
+            'tipe' => 'game'
         ]);
         Category::create([
-            'name' => 'Cherry Credits',
-            'img' => '/img/game/cherry_credit.jpg',
-            'slug' => 'cherry-credits'
+            'name' => 'Ride Out Heroes',
+            'img' => '/img/game/rohero.webp',
+            'slug' => 'ride-out-heroes',
+            'tipe' => 'game'
+        ]);
+        Category::create([
+            'name' => 'Life After',
+            'img' => '/img/game/lifeafter.webp',
+            'slug' => 'life-after',
+            'tipe' => 'game'
+        ]);
+        Category::create([
+            'name' => 'Genshin Impact',
+            'img' => '/img/game/genshin.webp',
+            'slug' => 'genshin-impact',
+            'tipe' => 'game'
+        ]);
+        Category::create([
+            'name' => 'Love Nikki',
+            'img' => '/img/game/lovenikki.webp',
+            'slug' => 'love-nikki',
+            'tipe' => 'game'
+        ]);
+        Category::create([
+            'name' => 'Laplace M',
+            'img' => '/img/game/laplace.webp',
+            'slug' => 'laplace-m',
+            'tipe' => 'game'
+        ]);
+        Category::create([
+            'name' => 'Lost Saga',
+            'img' => '/img/game/lostsaga.jpg',
+            'slug' => 'lost-saga',
+            'tipe' => 'game'
+        ]);
+        Category::create([
+            'name' => 'Dragon Nest',
+            'img' => '/img/game/dragonnest.webp',
+            'slug' => 'dragon-nest',
+            'tipe' => 'game'
+        ]);
+        Category::create([
+            'name' => 'Dragon Raja',
+            'img' => '/img/game/dragonraja.webp',
+            'slug' => 'dragon-nest',
+            'tipe' => 'game'
+        ]);
+        User::create([
+            'email' => 'demo@demo.com',
+            'password' => bcrypt('password'),
+            'name' => 'Demo'
         ]);
     }
 }

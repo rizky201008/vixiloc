@@ -11,10 +11,10 @@ class MainController extends Controller
 {
     public function index()
     {
-        $kategori = Category::all();
+        $game = Category::all()->where('tipe','=','game');
         return view('dashboard', [
             'title' => 'Dashboard',
-            'kategori' => $kategori
+            'game' => $game
         ]);
     }
     public function category($slug)
@@ -34,42 +34,50 @@ class MainController extends Controller
     public function tx(Request $request){
         $produk= Product::where('sku','=',$request->sku)->first();
         $harga=$produk['price'];
+        $destination=$request->destinasi;
+        $ref_id = $request->ref;
+        $sku=$produk['sku'];
         if (Auth::user()->saldo>$harga) {
-            $curl = curl_init();
+            $digi_link= 'https://api.digiflazz.com/v1/transaction';
+            $digi_api= '74dde90d-c848-5da8-b45f-770920d94328';
+            $digi_user= 'yesavag9vZNo';
 
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://api.serpul.co.id/prabayar/order',
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => "destination=$request->destinasi&product_id=$request->sku&ref_id=$request->ref",
-                CURLOPT_HTTPHEADER => array(
-                    'Accept: application/json',
-                    'Authorization: a01d44c5b1b919ff410c580efca099ce'
-                ),
-            ));
+            $sign = md5($digi_user . $digi_api . $sku);
 
-            $response = curl_exec($curl);
+            $api_postdata = array(
+                'username' => "$digi_user",
+                'buyer_sku_code' => "$sku",
+                'customer_no' => "$destination",
+                'ref_id' => "$ref_id",
+                'sign' => "$sign"
+            );
+            $header = array(
+                'Content-Type: application/json',
+            );
 
-            curl_close($curl);
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $digi_link);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($api_postdata));
+            $chresult = curl_exec($ch);
+            curl_close($ch);
+            $json_result = json_decode($chresult, true);
+            // $result = json_decode($chresult);
 
-            $json_result = json_decode($response, true);
+            $response_status= $json_result['data']['status'];
+            $response_message= $json_result['data']['message'];
 
-            $response_code= $json_result['responseCode'];
-            $response_message= $json_result['responseMessage'];
-
-            if ($response_code == 200) {
+            if ($response_status == 'Sukses') {
                 // echo '<script>alert("'.$response_message.'");</script>';
                 return back()->with('success', "$response_message");
-            } elseif ($response_code == 400) {
+            } elseif ($response_status == 'Gagal') {
                 return back()->with('error', "$response_message");
             }
         } else {
-            echo '<script>alert("O Uh saldo anda kurang!!");</script>';
+            return back()->with('saldo', "Saldo anda kurang silahkan deposit");
         }
     }
 }

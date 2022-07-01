@@ -28,12 +28,12 @@
 </section>
         <div class="container">
             <div class="row justify-content-center text-center">
-                <h1 class="mb-5">Kategori</h1>
-                @foreach ($kategori as $category)
+                <h1 class="mb-5">Produk Game</h1>
+                @foreach ($game as $games)
                 <div class="col-4">
                     <div class="container">
-                        <a href="/product/{{ $category->slug }}"><img class="category-img mb-2" src="{{ $category->img }}" alt="{{ $category->name }}"></a>
-                        <p class="category-txt">{{ $category->name }}</p>
+                        <a href="/product/{{ $games->slug }}"><img class="category-img mb-2" src="{{ $games->img }}" alt="{{ $games->name }}"></a>
+                        <p class="category-txt">{{ $games->name }}</p>
                     </div>
                 </div>
                 @endforeach
