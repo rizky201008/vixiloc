@@ -11,14 +11,14 @@
         </li>
         @auth
         <li class="nav-item">
-          <a href="/akun/deposit" class="nav-link text-warning">Saldo: Rp.{{ auth()->user()->saldo }}</a>
+          <a href="/account/deposit" class="nav-link text-warning">Saldo: Rp.{{ auth()->user()->saldo }}</a>
         </li>
         @endauth
       </ul>
       <ul class="navbar-nav ms-auto">
           @auth
           <li class="nav-item">
-            <a href="/akun" class="nav-link">Halo! {{ auth()->user()->name }}</a>
+            <a href="/account" class="nav-link">Halo! {{ auth()->user()->name }}</a>
           </li>
           <li class="nav-item">
             

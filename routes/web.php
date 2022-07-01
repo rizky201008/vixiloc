@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AkunController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +23,11 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [MainController::class, 'index']);
 Route::get('/product/{slug}', [MainController::class, 'category'])->middleware('auth');
-Route::post('/product/{slug}', [MainController::class, 'tx']);
+Route::post('/product/{slug}', [MainController::class, 'tx'])->middleware('auth');
 Route::get('/auth/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/auth/login', [AuthController::class, 'auth']);
 Route::get('/auth/register', [AuthController::class, 'register'])->middleware('guest');
 Route::post('/auth/register', [AuthController::class, 'store']);
 Route::post('/auth/logout', [AuthController::class, 'logout']);
-Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/account', [AkunController::class, 'index'])->middleware('auth');
+Route::get('/account/deposit', [AkunController::class, 'deposit'])->middleware('auth');
