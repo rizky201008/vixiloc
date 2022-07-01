@@ -63,9 +63,10 @@ class MainController extends Controller
             $response_message= $json_result['responseMessage'];
 
             if ($response_code == 200) {
-                echo '<script>alert("'.$response_message.'");</script>';
+                // echo '<script>alert("'.$response_message.'");</script>';
+                return back()->with('success', "$response_message");
             } elseif ($response_code == 400) {
-                echo '<script>alert("'.$response_message.'");</script>';
+                return back()->with('error', "$response_message");
             }
         } else {
             echo '<script>alert("O Uh saldo anda kurang!!");</script>';

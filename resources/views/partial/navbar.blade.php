@@ -24,7 +24,7 @@
             
             <form action="/auth/logout" method="post">
               @csrf
-            <button type="submit" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Logout</button>
+            <button type="submit" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Log Out</button>
             </form>
           </li>
           @else
