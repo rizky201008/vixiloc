@@ -4,6 +4,9 @@ nav {
     backdrop-filter: blur(5px);
     box-shadow: 0px 1px 20px #4b4b4b;
 }
+.nav-link{
+    color: rgb(0, 255, 170);
+}
 .category-img {
     width: 50px;
     box-shadow: 0px 0px 20px #363636;
@@ -125,4 +128,10 @@ a{
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#help{
+    background-color: #0d6efd;
+    padding-top: 9rem;
+    padding-bottom: 9rem;
 }

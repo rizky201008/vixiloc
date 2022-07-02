@@ -7,7 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link {{ ($title==='Dashboard') ? 'active' : '' }}" href="/home">Home</a>
+          <a class="nav-link {{ ($title==='Home') ? 'active' : '' }}" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ ($title==='Help') ? 'active' : '' }}" href="/help">Bantuan</a>
         </li>
         @auth
         <li class="nav-item">

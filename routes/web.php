@@ -24,6 +24,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [MainController::class, 'index']);
+Route::get('/help', [MainController::class, 'help']);
 Route::get('/product/{slug}', [MainController::class, 'category'])->middleware('auth');
 Route::post('/product/{slug}', [MainController::class, 'tx'])->middleware('auth');
 Route::get('/auth/login', [AuthController::class, 'login'])->name('login')->middleware('guest');

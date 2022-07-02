@@ -12,7 +12,7 @@ class MainController extends Controller
     public function index()
     {
         $game = Category::all()->where('tipe','=','game');
-        return view('dashboard', [
+        return view('home', [
             'title' => 'Home',
             'game' => $game
         ]);
@@ -79,5 +79,11 @@ class MainController extends Controller
         } else {
             return back()->with('saldo', "Saldo anda kurang silahkan deposit");
         }
+    }
+
+    public function help(){
+        return view('help',[
+            'title' => 'Help'
+        ]);
     }
 }
