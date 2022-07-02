@@ -42,7 +42,7 @@ class MainController extends Controller
             $digi_api= '74dde90d-c848-5da8-b45f-770920d94328';
             $digi_user= 'yesavag9vZNo';
 
-            $sign = md5($digi_user . $digi_api . $sku);
+            $sign = md5($digi_user.$digi_api.$ref_id);
 
             $api_postdata = array(
                 'username' => "$digi_user",
