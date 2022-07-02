@@ -18,10 +18,12 @@ use App\Http\Controllers\AkunController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',[
+        'title' => 'Welcome'
+    ]);
 });
 
-Route::get('/dashboard', [MainController::class, 'index']);
+Route::get('/home', [MainController::class, 'index']);
 Route::get('/product/{slug}', [MainController::class, 'category'])->middleware('auth');
 Route::post('/product/{slug}', [MainController::class, 'tx'])->middleware('auth');
 Route::get('/auth/login', [AuthController::class, 'login'])->name('login')->middleware('guest');

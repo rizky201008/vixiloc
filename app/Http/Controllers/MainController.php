@@ -13,7 +13,7 @@ class MainController extends Controller
     {
         $game = Category::all()->where('tipe','=','game');
         return view('dashboard', [
-            'title' => 'Dashboard',
+            'title' => 'Home',
             'game' => $game
         ]);
     }
