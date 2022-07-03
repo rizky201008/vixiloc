@@ -18,7 +18,7 @@
                         </div>
                         <div class="col-4">
                             <div class="welcome-btn">
-                                <a href="#"><i class="bi bi-github text-light fs-5">Source</i></a>
+                                <a href="https://github.com/rizky201008/vixiloc"><i class="bi bi-github text-light fs-5">Source</i></a>
                             </div>
                         </div>
                     </div>
