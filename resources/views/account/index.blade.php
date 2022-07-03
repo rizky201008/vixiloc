@@ -24,5 +24,39 @@
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h5>Pesanan</h5>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Produk</th>
+                                    <th>Harga</th>
+                                    <th>Ref Code</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
+                                @foreach ($pesanan as $order)
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $order->product_name }}</td>
+                                        <td>{{ $order->price }}</td>
+                                        <td>{{ $order->ref }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

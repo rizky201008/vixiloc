@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Pesanan;
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
@@ -68,6 +70,12 @@ class MainController extends Controller
 
             if ($response_status == 'Sukses') {
                 // echo '<script>alert("'.$response_message.'");</script>';
+                $pesanan = new Pesanan;
+                $pesanan->product_name=$produk->name;
+                $pesanan->ref=$ref_id;
+                $pesanan->price=$harga;
+                $pesanan->user_id=Auth::user()->id;
+                $pesanan->save();
                 User::where('id', Auth::user()->id)->update(['saldo' => $saldo - $harga]);
                 return back()->with('success', "$response_message");
             } elseif ($response_status == 'Gagal') {

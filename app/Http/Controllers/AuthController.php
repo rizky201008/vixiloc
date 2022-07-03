@@ -20,7 +20,7 @@ class AuthController extends Controller
         ]);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/home');
         }
 
         return back()->with('error', 'Gagal Login!!!');
@@ -41,10 +41,8 @@ class AuthController extends Controller
         $validated_data['password'] = bcrypt($validated_data['password']);
         //Simpan data
         User::create($validated_data);
-        // FLash message
-        $request->session()->flash('success','Selamat anda sudah terdaftar');
         //Kembalikan ke login-page jika berhasil
-        return redirect('/auth/login');
+        return redirect('/auth/login')->with('success','Selamat anda sudah terdaftar');
     }
     
     public function logout(Request $request){
