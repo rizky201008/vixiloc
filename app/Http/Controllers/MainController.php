@@ -36,9 +36,10 @@ class MainController extends Controller
         $sku=$produk['sku'];
         $saldo= Auth::user()->saldo;
         if (Auth::user()->saldo>$harga) {
+            //digiflazz.com
             $digi_link= 'https://api.digiflazz.com/v1/transaction';
-            $digi_api= '74dde90d-c848-5da8-b45f-770920d94328';
-            $digi_user= 'yesavag9vZNo';
+            $digi_api= 'Your Digiflazz Api';
+            $digi_user= 'Your Username';
 
             $sign = md5($digi_user.$digi_api.$ref_id);
 
