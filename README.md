@@ -1,3 +1,15 @@
+## About Vixiloc
+Vixiloc adalah konter online berbasis website yang menjual berbagai produk digital berupa pulsa, paket data, voucher game, pln dll. Vixiloc dibangun menggunakan framework Laravel dan menggunakan API Service dari digiflazz.com untuk melakukan transaksi.
+
+## Lisensi
+Proyek ini dilindungi oleh lisensi MIT. Anda boleh menggunakan secara bebas untuk komersial namun anda harus menampilkan link website kami https://vixiloc.my.id sebagai pengesah lisensinya. Anda akan aman dari segala tuntutan jika anda mematuhi panduan atribusi.
+
+## Donasi
+Kami menerima donasi:
+1. BCA 6170661913
+2. Paypal @rizky4pyg / enthong127@gmail.com
+3. <a href="https://saweria.co/vixiloc">Saweria</a>
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
