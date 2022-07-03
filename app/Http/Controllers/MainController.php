@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,18 +26,13 @@ class MainController extends Controller
             'category' => $kategori
         ]);
     }
-    // public function store(Request $request)
-    // {
-    //     $data = $request->except(['_token']);
-    //     M_Mahasiswa::insert($data);
-    //     return redirect('/');
-    // }
     public function tx(Request $request){
         $produk= Product::where('sku','=',$request->sku)->first();
         $harga=$produk['price'];
         $destination=$request->destinasi;
         $ref_id = $request->ref;
         $sku=$produk['sku'];
+        $saldo= Auth::user()->saldo;
         if (Auth::user()->saldo>$harga) {
             $digi_link= 'https://api.digiflazz.com/v1/transaction';
             $digi_api= '74dde90d-c848-5da8-b45f-770920d94328';
@@ -72,6 +68,7 @@ class MainController extends Controller
 
             if ($response_status == 'Sukses') {
                 // echo '<script>alert("'.$response_message.'");</script>';
+                User::where('id', Auth::user()->id)->update(['saldo' => $saldo - $harga]);
                 return back()->with('success', "$response_message");
             } elseif ($response_status == 'Gagal') {
                 return back()->with('error', "$response_message");
