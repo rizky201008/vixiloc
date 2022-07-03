@@ -14,7 +14,7 @@ class MainController extends Controller
 {
     public function index()
     {
-        $game = Category::all()->where('tipe','=','game');
+        $game = Category::all()->where('tipe', '=', 'game');
         return view('home', [
             'title' => 'Home',
             'game' => $game
@@ -22,26 +22,27 @@ class MainController extends Controller
     }
     public function category($slug)
     {
-        $kategori = Category::with('product')->where('slug','=',$slug)->first();
+        $kategori = Category::with('product')->where('slug', '=', $slug)->first();
         return view('product', [
             'title' => 'Produk',
             'category' => $kategori
         ]);
     }
-    public function tx(Request $request){
-        $produk= Product::where('sku','=',$request->sku)->first();
-        $harga=$produk['price'];
-        $destination=$request->destinasi;
+    public function tx(Request $request)
+    {
+        $produk = Product::where('sku', '=', $request->sku)->first();
+        $harga = $produk['price'];
+        $destination = $request->destinasi;
         $ref_id = $request->ref;
-        $sku=$produk['sku'];
-        $saldo= Auth::user()->saldo;
-        if (Auth::user()->saldo>$harga) {
+        $sku = $produk['sku'];
+        $saldo = Auth::user()->saldo;
+        if (Auth::user()->saldo > $harga) {
             //digiflazz.com
-            $digi_link= 'https://api.digiflazz.com/v1/transaction';
-            $digi_api= 'Your Digiflazz Api';
-            $digi_user= 'Your Username';
+            $digi_link = 'https://api.digiflazz.com/v1/transaction';
+            $digi_api = 'Your_Digiflazz_API';
+            $digi_user = 'Your_username';
 
-            $sign = md5($digi_user.$digi_api.$ref_id);
+            $sign = md5($digi_user . $digi_api . $ref_id);
 
             $api_postdata = array(
                 'username' => "$digi_user",
@@ -66,16 +67,24 @@ class MainController extends Controller
             $json_result = json_decode($chresult, true);
             // $result = json_decode($chresult);
 
-            $response_status= $json_result['data']['status'];
-            $response_message= $json_result['data']['message'];
+            $response_status = $json_result['data']['status'];
+            $response_message = $json_result['data']['message'];
 
             if ($response_status == 'Sukses') {
-                // echo '<script>alert("'.$response_message.'");</script>';
                 $pesanan = new Pesanan;
-                $pesanan->product_name=$produk->name;
-                $pesanan->ref=$ref_id;
-                $pesanan->price=$harga;
-                $pesanan->user_id=Auth::user()->id;
+                $pesanan->product_name = $produk->name;
+                $pesanan->ref = $ref_id;
+                $pesanan->price = $harga;
+                $pesanan->user_id = Auth::user()->id;
+                $pesanan->save();
+                User::where('id', Auth::user()->id)->update(['saldo' => $saldo - $harga]);
+                return back()->with('success', "$response_message");
+            } elseif ($response_status == 'Pending') {
+                $pesanan = new Pesanan;
+                $pesanan->product_name = $produk->name;
+                $pesanan->ref = $ref_id;
+                $pesanan->price = $harga;
+                $pesanan->user_id = Auth::user()->id;
                 $pesanan->save();
                 User::where('id', Auth::user()->id)->update(['saldo' => $saldo - $harga]);
                 return back()->with('success', "$response_message");
@@ -87,8 +96,9 @@ class MainController extends Controller
         }
     }
 
-    public function help(){
-        return view('help',[
+    public function help()
+    {
+        return view('help', [
             'title' => 'Help'
         ]);
     }
