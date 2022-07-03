@@ -2,7 +2,7 @@
 Vixiloc adalah konter online berbasis website yang menjual berbagai produk digital berupa pulsa, paket data, voucher game, pln dll. Vixiloc dibangun menggunakan framework Laravel dan menggunakan API Service dari digiflazz.com untuk melakukan transaksi.
 
 ## Lisensi
-Proyek ini dilindungi oleh lisensi MIT. Anda boleh menggunakan secara bebas untuk komersial namun anda harus menampilkan link website kami https://vixiloc.my.id sebagai pengesah lisensinya. Anda akan aman dari segala tuntutan jika anda mematuhi panduan atribusi.
+Proyek ini dilindungi oleh lisensi APACHE. Anda boleh menggunakan secara bebas untuk komersial namun anda harus menampilkan link website kami https://vixiloc.my.id sebagai pengesah lisensinya. Anda akan aman dari segala tuntutan jika anda mematuhi panduan atribusi.
 
 ## Donasi
 Kami menerima donasi:
