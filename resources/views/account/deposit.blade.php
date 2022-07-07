@@ -8,14 +8,15 @@
                         <div class="card-title">
                             <h1>Silahkan lakukan pembayaran ke rekening dibawah ini</h1>
                             <i>
-                                <p>Pengisian saldo dilakukan secara manual oleh admin pada jam deposit, jika melebihi 1 jam belum juga
-                                    bertambah saldo
-                                    anda maka silahkan hubungi <a href="https://t.me/vixilocmyid">admin</a>. Minimal isi
-                                    saldo adalah 10.000 untuk bank dan 5.000 untuk ewallet dengan biaya 0 rupiah. Saldo yang
+                                <p>Pengisian saldo dilakukan secara manual oleh admin <strong>pada jam deposit</strong>, silahkan
+                                    hubungi <a href="https://t.me/vixilocmyid">admin</a> dan <strong>tunjukkan bukti transfer anda</strong>. Minimal isi
+                                    saldo adalah <strong>10.000</strong> untuk bank dan <strong>5.000</strong> untuk ewallet dengan biaya 0 rupiah. Saldo yang
                                     di deposit kan hanya dapat ditarik dalam bentuk produk seperti voucher game, ewallet dll
                                     dan kami tidak menyediakan opsi penarikan ke bank atau ewallet secara langsung.</p>
                             </i>
-                            <b><p>Jam deposit 09.00-22.00 WIB</p></b>
+                            <b>
+                                <p>Jam deposit 09.00-22.00 WIB</p>
+                            </b>
                         </div>
                         <ul class="list-group">
                             <li class="list-group-item">

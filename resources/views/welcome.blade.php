@@ -44,7 +44,7 @@
                         sebagai bisnis
                         yang berjalan di bidang penjualan pulsa dan produk sejenis.</p>
 
-                    <p>No. : AHU-023773.AH.01.30.Tahun 2022</p>
+                    <p>No : AHU-023773.AH.01.30.Tahun 2022</p>
                 </div>
             </div>
         </div>
