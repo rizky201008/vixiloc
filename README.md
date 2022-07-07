@@ -16,6 +16,7 @@ Kami menerima donasi:
 1. BCA 6170661913
 2. Paypal @rizky4pyg / enthong127@gmail.com
 3. <a href="https://saweria.co/vixiloc">Saweria</a>
+4. <a href="https://ko-fi.com/denrizky">Ko-Fi</a>
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
