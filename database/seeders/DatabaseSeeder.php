@@ -125,6 +125,12 @@ class DatabaseSeeder extends Seeder
             'slug' => 'dragon-nest',
             'tipe' => 'game'
         ]);
+        Category::create([
+            'name' => 'Steam Wallet IDR',
+            'img' => '/img/voucher/steam.jpg',
+            'slug' => 'steam-wallet',
+            'tipe' => 'voucher'
+        ]);
         User::create([
             'email' => 'demo@demo.com',
             'password' => bcrypt('password'),

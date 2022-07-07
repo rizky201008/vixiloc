@@ -15,9 +15,11 @@ class MainController extends Controller
     public function index()
     {
         $game = Category::all()->where('tipe', '=', 'game');
+        $voucher = Category::all()->where('tipe', '=', 'voucher');
         return view('home', [
             'title' => 'Home',
-            'game' => $game
+            'game' => $game,
+            'voucher' => $voucher
         ]);
     }
     public function category($slug)
