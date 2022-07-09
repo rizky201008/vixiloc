@@ -15,7 +15,7 @@
             <label class="form-label" for="password">
                 Masukkan Password
             </label> 
-            <input class="form-control mb-3 @error('password') is-invalid @enderror" type="password" name="password" id="password" placeholder="dajk" required>
+            <input class="form-control mb-3 @error('password') is-invalid @enderror" type="password" name="password" id="password" placeholder="Passwordmu rahasiamu" required>
            @error('password')
             <div class="invalid-feedback mb-3">
                 {{ $message }}
