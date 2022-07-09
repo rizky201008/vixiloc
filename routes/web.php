@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome',[
         'title' => 'Welcome'
     ]);
-});
+})->middleware('guest');
 
 Route::get('/home', [MainController::class, 'index']);
 Route::get('/help', [MainController::class, 'help']);
