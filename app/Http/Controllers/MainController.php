@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Telegram\Bot\Api;
 use App\Models\Pesanan;
 use App\Models\Product;
 use App\Models\Category;
@@ -38,6 +39,7 @@ class MainController extends Controller
         $ref_id = $request->ref;
         $sku = $produk['sku'];
         $saldo = Auth::user()->saldo;
+        $email = Auth::user()->email;
         if (Auth::user()->saldo > $harga) {
             //digiflazz.com
             $digi_link = 'https://api.digiflazz.com/v1/transaction';
@@ -80,6 +82,11 @@ class MainController extends Controller
                 $pesanan->user_id = Auth::user()->id;
                 $pesanan->save();
                 User::where('id', Auth::user()->id)->update(['saldo' => $saldo - $harga]);
+                $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
+                $telegram->sendMessage([
+                    'chat_id' => env('TELEGRAM_ADMIN_CHAT_ID'),
+                    'text' => "Transaksi user $email berhasil"
+                ]);
                 return back()->with('success', "$response_message");
             } elseif ($response_status == 'Pending') {
                 $pesanan = new Pesanan;
@@ -89,8 +96,18 @@ class MainController extends Controller
                 $pesanan->user_id = Auth::user()->id;
                 $pesanan->save();
                 User::where('id', Auth::user()->id)->update(['saldo' => $saldo - $harga]);
+                $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
+                $telegram->sendMessage([
+                    'chat_id' => env('TELEGRAM_ADMIN_CHAT_ID'),
+                    'text' => "Transaksi user $email pending"
+                ]);
                 return back()->with('success', "$response_message");
             } elseif ($response_status == 'Gagal') {
+                $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
+                $telegram->sendMessage([
+                    'chat_id' => env('TELEGRAM_ADMIN_CHAT_ID'),
+                    'text' => "Transaksi user $email gagal dengan pesan : $response_message"
+                ]);
                 return back()->with('error', "$response_message");
             }
         } else {
