@@ -41,10 +41,10 @@ class MainController extends Controller
         $saldo = Auth::user()->saldo;
         $email = Auth::user()->email;
         if (Auth::user()->saldo > $harga) {
-            //digiflazz.com
+            // digiflazz.com
             $digi_link = 'https://api.digiflazz.com/v1/transaction';
-            $digi_api = 'Your_Digiflazz_API';
-            $digi_user = 'Your_username';
+            $digi_api = env('DIGIFLAZZ_API');
+            $digi_user = env('DIGIFLAZZ_USERNAME');
 
             $sign = md5($digi_user . $digi_api . $ref_id);
 
