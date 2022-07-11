@@ -34,3 +34,5 @@ Route::post('/auth/register', [AuthController::class, 'store']);
 Route::post('/auth/logout', [AuthController::class, 'logout']);
 Route::get('/account', [AkunController::class, 'index'])->middleware('auth');
 Route::get('/account/deposit', [AkunController::class, 'deposit'])->middleware('auth');
+Route::get('/account/deposit/konfirmasi', [AkunController::class, 'confirm'])->middleware('auth');
+Route::post('/account/deposit/konfirmasi', [AkunController::class, 'confirmDeposit'])->middleware('auth');
