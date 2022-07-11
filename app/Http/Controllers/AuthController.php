@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Telegram\Bot\Api;
 
 class AuthController extends Controller
 {
@@ -41,6 +42,15 @@ class AuthController extends Controller
         $validated_data['password'] = bcrypt($validated_data['password']);
         //Simpan data
         User::create($validated_data);
+        
+        // Beritahu Admin jika ada user baru daftar
+        $email = $validated_data['email'];
+        $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
+        $telegram->sendMessage([
+            'chat_id' => env('TELEGRAM_ADMIN_CHAT_ID'),
+            'text' => "Kabar baik user $email baru saja mendaftar di vixiloc.my.id"
+        ]);
+
         //Kembalikan ke login-page jika berhasil
         return redirect('/auth/login')->with('success','Selamat anda sudah terdaftar');
     }

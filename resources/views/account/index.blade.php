@@ -13,7 +13,7 @@
                         </div>
                         <a href="/deposit"><button class="btn btn-info w-100 mb-2"><i
                                     class="bi bi-wallet-fill"></i>Deposit</button></a>
-                        <a href="https://t.me/vixilocmyid"><button class="btn btn-info w-100 mb-2"><i
+                        <a href="/help"><button class="btn btn-info w-100 mb-2"><i
                                     class="bi bi-headset"></i>Bantuan</button></a>
                         <form action="/auth/logout" method="post">
                             @csrf

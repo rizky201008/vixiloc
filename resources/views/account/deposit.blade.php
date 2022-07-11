@@ -8,8 +8,7 @@
                         <div class="card-title">
                             <h1>Silahkan lakukan pembayaran ke rekening dibawah ini</h1>
                             <i>
-                                <p>Pengisian saldo dilakukan secara manual oleh admin <strong>pada jam deposit</strong>, silahkan
-                                    hubungi <a href="https://t.me/vixilocmyid">admin</a> dan <strong>tunjukkan bukti transfer anda</strong>. Minimal isi
+                                <p>Pengisian saldo dilakukan secara manual oleh admin <strong>pada jam deposit</strong>. Minimal isi
                                     saldo adalah <strong>10.000</strong> untuk bank dan <strong>5.000</strong> untuk ewallet dengan biaya 0 rupiah. Saldo yang
                                     di deposit kan hanya dapat ditarik dalam bentuk produk seperti voucher game, ewallet dll
                                     dan kami tidak menyediakan opsi penarikan ke bank atau ewallet secara langsung.</p>
@@ -36,6 +35,7 @@
                                 <p>081232435871</p>
                             </li>
                         </ul>
+                        <a href="/account/deposit/konfirmasi"><button class="btn btn-primary w-100 mt-3">Konfirmasi Deposit</button></a>
                     </div>
                 </div>
             </div>
