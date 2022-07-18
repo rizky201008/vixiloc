@@ -6,17 +6,16 @@ PT. VIXILOC BERKAH SELALU
 
 Vixiloc telah terdaftar secara resmi di pemerintahan Republik Indonesia dan telah legal beroperasi sebagai bisnis yang berjalan di bidang penjualan pulsa dan produk sejenis.
 
-No. : AHU-023773.AH.01.30.Tahun 2022
+No : AHU-023773.AH.01.30.Tahun 2022
 
 # Lisensi
 Proyek ini dilindungi oleh lisensi APACHE. Anda boleh menggunakan secara bebas untuk komersial namun anda harus menampilkan link website kami https://vixiloc.my.id sebagai pengesah lisensinya. Anda akan aman dari segala tuntutan jika anda mematuhi panduan atribusi.
 
 # Donasi
 Kami menerima donasi:
-1. BCA 6170661913
-2. Paypal @rizky4pyg / enthong127@gmail.com
-3. <a href="https://saweria.co/vixiloc">Saweria</a>
-4. <a href="https://ko-fi.com/denrizky">Ko-Fi</a>
+1. Paypal @rizky4pyg / enthong127@gmail.com
+2. <a href="https://saweria.co/vixiloc">Saweria</a>
+3. <a href="https://ko-fi.com/denrizky">Ko-Fi</a>
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
