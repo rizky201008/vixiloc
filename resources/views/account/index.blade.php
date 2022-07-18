@@ -11,7 +11,7 @@
                         <div class="card-text mb-1">
                             <p>Saldo: Rp {{ number_format(auth()->user()->saldo) }}</p>
                         </div>
-                        <a href="/deposit"><button class="btn btn-info w-100 mb-2"><i
+                        <a href="/account/deposit"><button class="btn btn-info w-100 mb-2"><i
                                     class="bi bi-wallet-fill"></i>Deposit</button></a>
                         <a href="/help"><button class="btn btn-info w-100 mb-2"><i
                                     class="bi bi-headset"></i>Bantuan</button></a>
