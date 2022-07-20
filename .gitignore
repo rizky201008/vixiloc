@@ -14,3 +14,4 @@ yarn-error.log
 /.idea
 /.vscode
 routes/api.php
+app/Http/Controllers/Api
