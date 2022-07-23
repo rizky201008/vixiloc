@@ -36,12 +36,18 @@ class AuthController extends Controller
         $validated_data=$request->validate([
             'email'=>'required|email:dns|unique:users|max:225',
             'name'=>'required|max:225',
-            'password'=>'required|min:8'
+            'password'=>'required|min:8',
         ]);
         //Enkripsi sandi
-        $validated_data['password'] = bcrypt($validated_data['password']);
+        $password = bcrypt($validated_data['password']);
+        $api = hash("sha256", $validated_data['email'].$validated_data['password']);
         //Simpan data
-        User::create($validated_data);
+        User::create([
+            'email'=>$validated_data['email'],
+            'name'=>$validated_data['name'],
+            'password'=>$password,
+            'api_key'=>$api
+        ]);
         
         // Beritahu Admin jika ada user baru daftar
         $email = $validated_data['email'];
