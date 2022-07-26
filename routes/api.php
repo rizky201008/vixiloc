@@ -16,6 +16,6 @@ Route::get('/',[ApiController::class, 'index']);
 Route::get('/products/{category}',[ApiController::class, 'product']);
 Route::get('/categories',[ApiController::class, 'category']);
 Route::get('/users',[ApiController::class, 'user']);
-Route::post('/transfers/{id}',[ApiController::class, 'transfer']);
+Route::put('/transfers/{id}',[ApiController::class, 'transfer']);
 //Route cache:
 Route::get('/route-cache', [ApiController::class, 'route_cache']);
