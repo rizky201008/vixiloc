@@ -13,7 +13,7 @@ Proyek ini dilindungi oleh lisensi APACHE. Anda boleh menggunakan secara bebas u
 
 # Donasi
 Kami menerima donasi:
-1. Paypal @rizky4pyg / enthong127@gmail.com
+1. Paypal @rizky4pyg / <a href="https://paypal.me/rizky4pyg?country.x=ID&locale.x=id_ID">enthong127@gmail.com</a>
 2. <a href="https://saweria.co/vixiloc">Saweria</a>
 3. <a href="https://ko-fi.com/denrizky">Ko-Fi</a>
 
