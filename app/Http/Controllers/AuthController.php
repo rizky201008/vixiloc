@@ -40,11 +40,13 @@ class AuthController extends Controller
         ]);
         //Enkripsi sandi
         $password = bcrypt($validated_data['password']);
+        $api_key = bcrypt($validated_data['email'].$validated_data['password']);
         //Simpan data
         User::create([
             'email'=>$validated_data['email'],
             'name'=>$validated_data['name'],
-            'password'=>$password
+            'password'=>$password,
+            'api_key'=>$api_key
         ]);
         
         // Beritahu Admin jika ada user baru daftar
