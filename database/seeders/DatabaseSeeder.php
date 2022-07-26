@@ -134,7 +134,14 @@ class DatabaseSeeder extends Seeder
         User::create([
             'email' => 'demo@demo.com',
             'password' => bcrypt('password'),
-            'name' => 'Demo'
+            'name' => 'Demo',
+            'api_key' => bcrypt('demo@demo.compassword')
+        ]);
+        User::create([
+            'email' => 'demo1@demo.com',
+            'password' => bcrypt('password'),
+            'name' => 'Demo',
+            'api_key' => bcrypt('demo1@demo.compassword')
         ]);
     }
 }
