@@ -13,9 +13,13 @@ use App\Http\Controllers\Api\ApiController;
 |
 */
 Route::get('/',[ApiController::class, 'index']);
+// See all product by category
 Route::get('/products/{category}',[ApiController::class, 'product']);
+// See all category
 Route::get('/categories',[ApiController::class, 'category']);
-Route::get('/users',[ApiController::class, 'user']);
-//Route cache:
+// Route cache:
 Route::get('/route-cache', [ApiController::class, 'route_cache']);
+// Transfer Saldo
 Route::put('/transfers', [ApiController::class, 'transfer']);
+// Transaction
+Route::post('/transactions', [ApiController::class, 'transaction']);
