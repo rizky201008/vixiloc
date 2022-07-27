@@ -24,10 +24,6 @@ class ApiController extends Controller
         $data['data'] = $products;
         return response()->json(['message'=>'success','data'=>$data]);
     }
-    public function user(){
-        $user['response'] = User::all();
-        return response()->json(['message' => 'success', 'data' => $user]);
-    }
     public function category()
     {
         $categories = Category::all();
@@ -65,5 +61,8 @@ class ApiController extends Controller
     public function route_cache(){
             Artisan::call('route:cache');
             return response()->json('Route Cache Clear');
+    }
+    public function transaction(){
+        return response()->json(['message'=>'Hai, Fitur ini masih dalam pengembangan']);
     }
 }
