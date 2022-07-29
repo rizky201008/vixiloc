@@ -19,6 +19,8 @@ Route::get('/products/{category}',[ApiController::class, 'product']);
 Route::get('/categories',[ApiController::class, 'category']);
 // Route cache:
 Route::get('/route-cache', [ApiController::class, 'route_cache']);
+// Cache clear:
+Route::get('/cache-clear', [ApiController::class, 'cache_clear']);
 // Transfer Saldo
 Route::put('/transfers', [ApiController::class, 'transfer']);
 // Transaction

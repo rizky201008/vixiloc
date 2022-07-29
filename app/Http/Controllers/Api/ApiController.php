@@ -62,6 +62,10 @@ class ApiController extends Controller
             Artisan::call('route:cache');
             return response()->json('Cache pada route telah di hapus');
     }
+    public function cache_clear(){
+            Artisan::call('cache:clear');
+            return response()->json('Cache pada route telah di hapus');
+    }
     public function transaction(){
         return response()->json(['message'=>'Hai, Fitur ini masih dalam pengembangan']);
     }
